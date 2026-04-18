@@ -1,0 +1,72 @@
+model:
+  default: modelroute
+  provider: custom
+  base_url: http://127.0.0.1:19000/proxy/llm
+providers:
+  qclaw:
+    base_url: http://127.0.0.1:19000/proxy/llm
+    api_key: qclaw-gateway
+    models:
+    - modelroute
+  github:
+    api_key: ""  # 使用环境变量 GITHUB_TOKEN
+toolsets:
+- hermes-cli
+agent:
+  max_turns: 90
+terminal:
+  backend: local
+  cwd: /Users/chenhongxiang/.hermes/workspace
+  timeout: 180
+display:
+  personality: kawaii
+  reasoning: false
+  bell: false
+timezone: Asia/Shanghai
+context:
+  compression:
+    enabled: true
+    threshold: 0.5
+    target_ratio: 0.2
+    protect_last: 20
+auxiliary:
+  vision:
+    provider: custom
+    base_url: http://127.0.0.1:19000/proxy/llm
+    api_key: qclaw-gateway
+  compression:
+    provider: custom
+    base_url: http://127.0.0.1:19000/proxy/llm
+    api_key: qclaw-gateway
+  title:
+    provider: custom
+    base_url: http://127.0.0.1:19000/proxy/llm
+    api_key: qclaw-gateway
+  fallback:
+    provider: custom
+    base_url: http://127.0.0.1:19000/proxy/llm
+    api_key: qclaw-gateway
+  delegation:
+    provider: custom
+    base_url: http://127.0.0.1:19000/proxy/llm
+    api_key: qclaw-gateway
+  subagent:
+    provider: custom
+    base_url: http://127.0.0.1:19000/proxy/llm
+    api_key: qclaw-gateway
+tts:
+  provider: edge
+  voice: ''
+platforms:
+  feishu:
+    enabled: true
+    extra:
+      app_id: cli_a96a631086f99ccb
+      app_secret: ""  # 使用环境变量 FEISHU_APP_SECRET
+      domain: feishu
+      connection_mode: websocket
+      group_policy: allowlist
+    default_chat_id: oc_dba6ed42187b10b03252d6a5d2741f48
+  weixin:
+    enabled: true
+WEIXIN_HOME_CHANNEL: o9cq80wmlaLebWzujfXLu1nr5i_w@im.wechat
