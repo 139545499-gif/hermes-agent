@@ -1,0 +1,1 @@
+First session with user on 2026-04-18. User spoke Chinese. No prior identity info stored.
